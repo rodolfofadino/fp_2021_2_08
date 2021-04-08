@@ -1,0 +1,24 @@
+﻿@model Aluno
+
+
+<h1>Olá @ViewData["nome"] sua idade já foi @ViewBag.Idade </h1>
+<p>
+    @Model.Id
+    <br />
+    <br />
+    @Model.Nome
+</p>
+
+<br />
+<br />
+
+<img src="~/giphy.gif" />
+
+
+@section Script{
+
+    <script type="text/javascript">
+        alert("teste");
+    </script>
+
+}
