@@ -1,7 +1,7 @@
 ﻿@model Aluno
 
 
-<h1>Olá @ViewData["nome"] sua idade já foi @ViewBag.Idade </h1>
+<h1>Boa quinta @ViewData["nome"] sua idade já foi @ViewBag.Idade </h1>
 <p>
     @Model.Id
     <br />
@@ -12,13 +12,28 @@
 <br />
 <br />
 
-<img src="~/giphy.gif" />
+<email mail-to="rodolfo"></email>
 
 
-@section Script{
+<a href="mailto:rodolfo.fadino@gmail.com"> Mande um email</a>
+
+<br />
+<br />
+
+<vc:noticias noticias-urgentes="true" total="6"></vc:noticias>
+
+@await Component.InvokeAsync("Noticias", new { total=4, noticiasUrgentes = true })
+
+
+
+
+@*<img src="~/giphy.gif" />*@
+
+
+@section Scripts{
 
     <script type="text/javascript">
-        alert("teste");
+          //  alert("teste");
     </script>
 
 }
