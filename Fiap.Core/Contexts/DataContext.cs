@@ -1,11 +1,11 @@
-﻿using Fiap.Models;
+﻿using Fiap.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fiap.Contexts
+namespace Fiap.Core.Contexts
 {
     public class DataContext : DbContext
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Fiap.Models
+namespace Fiap.Core.Models
 {
     public class Aluno
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fiap.Models
+namespace Fiap.Core.Models
 {
     public class Noticia
     {
