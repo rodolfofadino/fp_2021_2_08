@@ -14,6 +14,7 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nome)
+
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Idade)
@@ -32,6 +33,8 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Nome)
+
+                @Html.Raw(item.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Idade)

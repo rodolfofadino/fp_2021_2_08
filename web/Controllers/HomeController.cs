@@ -16,7 +16,7 @@ namespace Fiap.Controllers
             //    return View("OutraView");
             //}
             //Acessando um DB
-            ViewData["nome"] = "Gabriel Batista";
+            ViewData["nome"] = "<script>alert('teste')</script>";
             ViewBag.Idade = 19;
 
             var aluno = new Aluno() { Id = 123, Nome = "Everton" };
@@ -41,6 +41,16 @@ namespace Fiap.Controllers
             //Salvar no DB
 
             return View();
+        }
+
+
+
+        public IActionResult RedirectReturn(string url)
+        {
+            if (Url.IsLocalUrl(url))
+                return LocalRedirect(url);
+
+            return LocalRedirect("/");
         }
 
     }

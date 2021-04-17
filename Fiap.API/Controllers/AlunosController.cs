@@ -8,12 +8,16 @@ using Microsoft.EntityFrameworkCore;
 using Fiap.Core.Contexts;
 using Fiap.Core.Models;
 using Microsoft.AspNetCore.Cors;
+using Fiap.API.Custom;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fiap.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("Default")]
+    //[CustomAuthorize]
+    [Authorize]
     public class AlunosController : ControllerBase
     {
         private readonly DataContext _context;

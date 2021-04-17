@@ -1,6 +1,7 @@
 ﻿using Fiap.Core.Contexts;
 using Fiap.Middlewares;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,12 +13,22 @@ namespace Fiap
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddDataProtection()
+                .SetApplicationName("fiap")
+                .PersistKeysToFileSystem(new System.IO.DirectoryInfo(@"C:\Users\Rodolfof\source\repos\fiap2021\Fiap\web"));
+
+            services.AddAuthentication("fiap")
+            .AddCookie("fiap", o => {
+                o.LoginPath = "/account/index";
+                o.AccessDeniedPath = "/account/denied";
+            });
+
+
             services.AddControllersWithViews();
             //.AddRazorRuntimeCompilation();
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=Fiap2021;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<DataContext>(option => option.UseSqlServer(connection));
-            
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -31,8 +42,14 @@ namespace Fiap
                 app.UseDeveloperExceptionPage();
             }
 
+
+
             app.UseStaticFiles();
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

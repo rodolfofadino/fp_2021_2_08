@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fiap.Core.Contexts;
 using Fiap.Core.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fiap.Controllers
 {
+    [Authorize(Roles ="admins")]
     public class AlunosController : Controller
     {
         private readonly DataContext _context;
@@ -22,6 +24,7 @@ namespace Fiap.Controllers
         // GET: Alunos
         public async Task<IActionResult> Index()
         {
+            var teste = User;
             return View(await _context.Alunos.ToListAsync());
         }
 
@@ -44,6 +47,7 @@ namespace Fiap.Controllers
         }
 
         // GET: Alunos/Create
+
         public IActionResult Create()
         {
             return View();
