@@ -1,4 +1,5 @@
 ﻿using Fiap.Core.Models;
+using Fiap.Core.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,12 @@ namespace Fiap.ViewComponents
 {
     public class NoticiasViewComponent : ViewComponent
     {
+        private INoticiaService _service;
+
+        public NoticiasViewComponent(INoticiaService service)
+        {
+            _service = service;
+        }
         public async Task<IViewComponentResult> InvokeAsync(int total, bool noticiasUrgentes)
         {
             var view = "noticias";
@@ -16,17 +23,10 @@ namespace Fiap.ViewComponents
             {
                 view = "noticiasurgentes";
             }
-            var noticias = GetNoticias(total);
 
-            return View(view, noticias);
+            return View(view, _service.Load(total));
         }
 
-        private IEnumerable<Noticia> GetNoticias(int total)
-        {
-            for (int i = 0; i < total; i++)
-            {
-                yield return new Noticia() { Id = i + 1, Titulo = $"Noticia {i}", Link = $"http://{i}" };
-            }
-        }
+        
     }
 }

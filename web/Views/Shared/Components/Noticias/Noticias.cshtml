@@ -1,9 +1,16 @@
-﻿@model IEnumerable<Noticia>
-<ul>
+﻿@model List<Noticia>
+
+<ul id="noticia">
     @foreach (var item in Model)
     {
-        <li>
-            <a href="@item.Link"> @item.Titulo</a>
+        <li class="col-6 m-2 mb-4 ">
+            <a class="font-weight-bold" href="@item.Link" target="_blank">
+                @item.Titulo
+                @if (!string.IsNullOrWhiteSpace(item.Imagem))
+                {
+                    <img class="mt-1 img-fluid img-noticia" src="@item.Imagem" alt="Alternate Text" />
+                }
+            </a>
         </li>
     }
 </ul>

@@ -1,10 +1,9 @@
 ﻿
 @if (User.Identity.IsAuthenticated)
 {
-    <a href="/account/logoff">Log off</a>
+    <a class="nav-link text-dark" href="/account/logoff">Log off</a>
 }
 else
 {
-    <a href="/account/index">Log in</a>
-
+    <a class="nav-link text-dark" href="/account/index">Log in</a>
 }

@@ -1,4 +1,5 @@
 ﻿using Fiap.Core.Contexts;
+using Fiap.Core.Services;
 using Fiap.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
@@ -26,6 +27,10 @@ namespace Fiap
 
             services.AddControllersWithViews();
             //.AddRazorRuntimeCompilation();
+
+            //services.AddTransient<INoticiaService, NoticiaService>();
+            //services.AddSingleton<INoticiaService, NoticiaService>();
+            services.AddScoped<INoticiaService, NoticiaService>();
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=Fiap2021;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<DataContext>(option => option.UseSqlServer(connection));
