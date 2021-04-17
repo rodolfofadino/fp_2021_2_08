@@ -9,10 +9,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <partial name="_Menu" />
-            @Html.Partial("_Menu")
-        </nav>
+        <partial name="_Menu" />
+        @*@Html.Partial("_Menu")*@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -22,7 +20,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - WebApplication8 - 
+            &copy; @DateTime.Now.Year - Fiap
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
