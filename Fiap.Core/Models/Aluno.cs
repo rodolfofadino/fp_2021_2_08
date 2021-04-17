@@ -11,7 +11,6 @@ namespace Fiap.Core.Models
         public string Profissao{ get; set; }
         public string CEP { get; set; }
 
-        public Status Status { get; set; }
     }
 
     public class Status
