@@ -3,21 +3,29 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApplication8</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link href="~/css/jcarousel.basic.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"] - Fiap</title>
+    
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <environment exclude="Production">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link href="~/css/jcarousel.basic.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link href="~/images/mysprite.sprite.css" rel="stylesheet" />
 
-    <script src="~/js/jquery.jcarousel.js"></script>
-    <script src="~/js/site.js"></script>
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/css/bundle.min.css" asp-append-version="true" />
+    </environment>
+
+
+
+    
 </head>
 <body>
     <header>
         <partial name="_Menu" />
         @*@Html.Partial("_Menu")*@
-        
+
 
     </header>
     <div class="container">
@@ -31,7 +39,27 @@
             &copy; @DateTime.Now.Year - Fiap
         </div>
     </footer>
+
+
+    <environment exclude="Production">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/jquery.jcarousel.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+    <environment include="Production">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/jquery.jcarousel.js"></script>
+        <script src="~/js/site.js"></script>
+        <script src="~/lib/jquery.lazy-master/jquery.lazy.js" asp-append-version="true"></script>
+    </environment>
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        $(function () {
+            $('.lazy').lazy();
+        });
+
+    </script>
 </body>
 </html>
 

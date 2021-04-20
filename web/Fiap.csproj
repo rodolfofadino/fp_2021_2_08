@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\bundle.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\bundle.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bundleconfig.json" />
     <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
@@ -28,6 +38,30 @@
     <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
     <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
     <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery.lazy-master\gulpfile.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\jquery.lazy.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\jquery.lazy.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\jquery.lazy.plugins.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\jquery.lazy.plugins.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\LICENSE" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.ajax.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.ajax.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.av.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.av.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.iframe.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.iframe.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.noop.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.noop.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.picture.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.picture.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.script.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.script.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.vimeo.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.vimeo.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.youtube.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\jquery.lazy.youtube.min.js" />
+    <None Include="wwwroot\lib\jquery.lazy-master\plugins\README.md" />
+    <None Include="wwwroot\lib\jquery.lazy-master\README.md" />
     <None Include="wwwroot\lib\jquery\dist\jquery.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
     <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />

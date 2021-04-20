@@ -35,19 +35,21 @@
     <div id="menu">
         <ul>
             <li>
-                <img class="icon" src="~/images/brasil.png" />
+                <div class="icon mysprite brasil"></div>
                 Brasil
             </li>
             <li>
-                <img class="icon" src="~/images/alemanha.png" />
+                <div class="icon mysprite alemanha"></div>
                 Alemanha
             </li>
             <li>
-                <img class="icon" src="~/images/grecia.png" />
+                <div class="icon mysprite grecia"></div>
+
                 Grecia
             </li>
+
             <li>
-                <img class="icon" src="~/images/eua.png" />
+                <div class="icon mysprite eua"></div>
                 EUA
             </li>
             <li>
@@ -82,23 +84,23 @@
 
 
 @*<h1>Boa quinta @ViewData["nome"] sua idade já foi @ViewBag.Idade </h1>
-<p>
-    @Model.Id
+    <p>
+        @Model.Id
+        <br />
+        <br />
+        @Model.Nome
+    </p>
+
     <br />
     <br />
-    @Model.Nome
-</p>
 
-<br />
-<br />
-
-<email mail-to="rodolfo"></email>
+    <email mail-to="rodolfo"></email>
 
 
-<a href="mailto:rodolfo.fadino@gmail.com"> Mande um email</a>
+    <a href="mailto:rodolfo.fadino@gmail.com"> Mande um email</a>
 
-<br />
-<br />*@
+    <br />
+    <br />*@
 
 <vc:noticias noticias-urgentes="true" total="6"></vc:noticias>
 

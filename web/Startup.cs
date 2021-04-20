@@ -4,8 +4,10 @@ using Fiap.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Net.Http.Headers;
 
 namespace Fiap
 {
@@ -24,6 +26,7 @@ namespace Fiap
                 o.AccessDeniedPath = "/account/denied";
             });
 
+            services.AddMemoryCache();
 
             services.AddControllersWithViews();
             //.AddRazorRuntimeCompilation();
@@ -34,6 +37,17 @@ namespace Fiap
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=Fiap2021;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<DataContext>(option => option.UseSqlServer(connection));
+
+
+            services.Configure<GzipCompressionProviderOptions>(o=>o.Level = System.IO.Compression.CompressionLevel.Optimal);
+
+            services.AddResponseCompression(o => {
+
+                o.Providers.Add<GzipCompressionProvider>();
+                //o.Providers.Add<BrotliCompressionProvider>();
+            });
+
+
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -47,9 +61,19 @@ namespace Fiap
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseResponseCompression();
 
+            app.UseStaticFiles(new StaticFileOptions() { 
+            
+                OnPrepareResponse = ctx =>
+                {
+                    var duration = 60 * 60 * 24 * 200;
+                    ctx.Context.Response.Headers[HeaderNames.CacheControl]
+                    = "public,max-age=" + duration;
+                }
+            
+            });
 
-            app.UseStaticFiles();
             app.UseRouting();
 
             app.UseAuthentication();
