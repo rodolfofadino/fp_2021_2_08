@@ -81,7 +81,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Fiap.Core\Fiap.Core.csproj" />
+    <ProjectReference Include="..\Fiap.Application\Fiap.Application.csproj" />
+    <ProjectReference Include="..\Fiap.Infrastructer\Fiap.Infrastructer.csproj" />
+    <ProjectReference Include="..\Fiap.IoC\Fiap.IoC.csproj" />
+    <ProjectReference Include="..\Fiap.Persistence\Fiap.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

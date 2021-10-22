@@ -1,4 +1,4 @@
-﻿using Fiap.Core.ViewModels;
+﻿using Fiap.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System;

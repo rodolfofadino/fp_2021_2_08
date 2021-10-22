@@ -15,8 +15,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Fiap.Core\Fiap.Core.csproj" />
-  </ItemGroup>
-
 </Project>

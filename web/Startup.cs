@@ -1,5 +1,5 @@
-﻿using Fiap.Core.Contexts;
-using Fiap.Core.Services;
+﻿using Fiap.Persistence.Contexts;
+using Fiap.Application.Services;
 using Fiap.Middlewares;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.DataProtection;
@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Net.Http.Headers;
+using Fiap.Application.Interfaces;
+using Fiap.Infrastructer.Clients;
+using Fiap.IoC;
 
 namespace Fiap
 {
@@ -16,36 +19,10 @@ namespace Fiap
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDataProtection()
-                .SetApplicationName("fiap")
-                .PersistKeysToFileSystem(new System.IO.DirectoryInfo(@"C:\Users\Rodolfof\source\repos\fiap2021\Fiap\web"));
+           
+            DependencyContainer.RegisterServices(services);
 
-            services.AddAuthentication("fiap")
-            .AddCookie("fiap", o => {
-                o.LoginPath = "/account/index";
-                o.AccessDeniedPath = "/account/denied";
-            });
-
-            services.AddMemoryCache();
-
-            services.AddControllersWithViews();
-            //.AddRazorRuntimeCompilation();
-
-            //services.AddTransient<INoticiaService, NoticiaService>();
-            //services.AddSingleton<INoticiaService, NoticiaService>();
-            services.AddScoped<INoticiaService, NoticiaService>();
-
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=Fiap2021;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<DataContext>(option => option.UseSqlServer(connection));
-
-
-            services.Configure<GzipCompressionProviderOptions>(o=>o.Level = System.IO.Compression.CompressionLevel.Optimal);
-
-            services.AddResponseCompression(o => {
-
-                o.Providers.Add<GzipCompressionProvider>();
-                //o.Providers.Add<BrotliCompressionProvider>();
-            });
+           
 
 
         }

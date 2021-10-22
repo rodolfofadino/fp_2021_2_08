@@ -1,4 +1,4 @@
-﻿using Fiap.Core.Models;
+﻿using Fiap.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

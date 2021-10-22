@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Fiap.Core.Migrations
+namespace Fiap.Persistence.Migrations
 {
     public partial class TirMigration : Migration
     {

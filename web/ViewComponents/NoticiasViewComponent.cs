@@ -1,5 +1,5 @@
-﻿using Fiap.Core.Models;
-using Fiap.Core.Services;
+﻿using Fiap.Domain.Models;
+using Fiap.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

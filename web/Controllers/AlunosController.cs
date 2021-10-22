@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Fiap.Core.Contexts;
-using Fiap.Core.Models;
+using Fiap.Persistence.Contexts;
+using Fiap.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Fiap.Controllers

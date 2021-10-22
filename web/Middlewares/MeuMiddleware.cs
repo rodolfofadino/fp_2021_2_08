@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Fiap.Application.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using Serilog;
 using System;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,23 +9,21 @@ namespace Fiap.Middlewares
 {
     public class MeuMiddleware
     {
+        private ILoggerClient _loggerClient;
         private RequestDelegate _next;
 
-        public MeuMiddleware(RequestDelegate next)
+        public MeuMiddleware(RequestDelegate next, ILoggerClient loggerClient)
         {
+            _loggerClient = loggerClient;
             _next = next;
         }
 
         public async Task Invoke(HttpContext httpContext)
         {
             httpContext.Request.EnableBuffering();
-            
+
             var request = await FormatRequest(httpContext.Request);
-            var log = new LoggerConfiguration()
-            .WriteTo.Logentries("d53d9bcd-f0da-4a61-bb75-28c91a5b16d2")
-            .CreateLogger();
-            //log sql
-            log.Information($"request {request}");
+            _loggerClient.Log(request);
 
             httpContext.Request.Body.Position = 0;
             

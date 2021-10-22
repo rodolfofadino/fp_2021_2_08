@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Fiap.Core.Models;
+using Fiap.Domain.Models;
 
-namespace Fiap.Core.Services
+namespace Fiap.Application.Services
 {
     public interface INoticiaService
     {

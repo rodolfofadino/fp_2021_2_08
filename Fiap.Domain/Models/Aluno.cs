@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Fiap.Core.Models
+namespace Fiap.Domain.Models
 {
     public class Aluno
     {
@@ -12,12 +12,4 @@ namespace Fiap.Core.Models
         public string CEP { get; set; }
 
     }
-
-    public class Status
-    {
-        public int Id { get; set; }
-        public string Nome { get; set; }
-    }
-
-
 }
